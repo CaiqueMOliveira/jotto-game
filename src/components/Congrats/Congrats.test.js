@@ -19,7 +19,9 @@ it('should render without error', () => {
 });
 
 it('should render no text when `success` prop is false', () => {
-
+  const wrapper = createShallowWrapper({ success: false });
+  const congratsComponent = findByTestAttribute(wrapper, 'component-congrats');
+  expect(congratsComponent.text()).toBe('');
 });
 
 it('should render non-empty congrats messahe when `success` prop is true', () => {
