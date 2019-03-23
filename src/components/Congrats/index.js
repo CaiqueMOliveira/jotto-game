@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Congrats() {
+export default function Congrats() {
   return (
     <h1>Hello word</h1>
   );
