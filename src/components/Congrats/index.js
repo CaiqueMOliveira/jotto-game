@@ -1,7 +1,15 @@
 import React from 'react';
 
-export default function Congrats() {
+export default function Congrats({ success }) {
+  if (success) return (
+    <div data-test="component-congrats">
+      <p data-test="congrats-message">
+        Congratulations! You guessed teh word!
+      </p>
+    </div>
+  );
+
   return (
-    <h1>Hello word</h1>
+    <div data-test="component-congrats" />
   );
 }
