@@ -4,7 +4,7 @@ import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Congrats from './';
 import { findByTestAttribute } from '../../../__test__/utils';
 
-Enzyme.configure({ adpater: new EnzymeAdapter() });
+Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 function createShallowWrapper(props = {}, state = null) {
   const wrapper = shallow(<Congrats {...props} />);
@@ -13,7 +13,9 @@ function createShallowWrapper(props = {}, state = null) {
 }
 
 it('should render without error', () => {
-
+  const wrapper = createShallowWrapper();
+  const congratsComponent = findByTestAttribute(wrapper, 'component-congrats');
+  expect(congratsComponent.length).toBe(1);
 });
 
 it('should render no text when `success` prop is false', () => {
