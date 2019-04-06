@@ -18,7 +18,6 @@ function GuessedWords({ guessedWords }) {
         </tr>
       ));
     }
-
     return (
       <div data-test="guessed-words">
         <h3>Guessed Words</h3>
