@@ -2,15 +2,45 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function GuessedWords({ guessedWords }) {
-  function renderGuessInstructions() {
-    if (guessedWords.length) return;
+  function renderGuessInstructionsOrGuessedWord() {
+    if (!guessedWords.length)
+      return (
+        <span data-test="guess-instructions">
+          Try to guess the secret word!
+        </span>
+      );
+
+    function renderGuessedWords() {
+      return guessedWords.map((word, index) => (
+        <tr data-test="guessed-word" key={index}>
+          <td>{word.guessedWord}</td>
+          <td>{word.matchedLetters}</td>
+        </tr>
+      ));
+    }
+
     return (
-      <span data-test="guess-instructions">Try to guess the secret word!</span>
+      <div data-test="guessed-words">
+        <h3>Guessed Words</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Guess</th>
+            </tr>
+            <tr>
+              <th>Matching Letters</th>
+            </tr>
+          </thead>
+          <tbody>{renderGuessedWords()}</tbody>
+        </table>
+      </div>
     );
   }
 
   return (
-    <div data-test="component-guessed-word">{renderGuessInstructions()}</div>
+    <div data-test="component-guessed-words">
+      {renderGuessInstructionsOrGuessedWord()}
+    </div>
   );
 }
 
