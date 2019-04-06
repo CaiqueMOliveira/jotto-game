@@ -1,4 +1,4 @@
-import { CORRECT_GUESS } from "./types";
+import { CORRECT_GUESS } from "../types";
 
 export function correctGuess() {
   return {
