@@ -1,18 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function Congrats({ success }) {
-  if (success) return (
-    <div data-test="component-congrats">
-      <p data-test="congrats-message">
-        Congratulations! You guessed teh word!
-      </p>
-    </div>
-  );
+  if (success)
+    return (
+      <div data-test="component-congrats" className="alert alert-success">
+        <span data-test="congrats-message">
+          Congratulations! You guessed the word!
+        </span>
+      </div>
+    );
 
-  return (
-    <div data-test="component-congrats" />
-  );
+  return <div data-test="component-congrats" />;
 }
 
 Congrats.propTypes = {
